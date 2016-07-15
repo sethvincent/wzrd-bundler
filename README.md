@@ -25,7 +25,7 @@ bundler(code, versions, function (err, bundle, packages) {
 
 **WORK IN PROGRESS**
 
-Instead of specifying `latest` or a specific version of a module, you can instead use the `bundler.localModule()` method to force the bundler to use your local version of a module in the browser bundle. This is important for debugging, or overriding the behavior of modules for demo purposes.
+Instead of specifying `latest` or a specific version of a module, you can instead use the `wzrd-bundler/local-module` module to force the bundler to use your local version of a module in the browser bundle. This is important for debugging, or overriding the behavior of modules for demo purposes.
 
 It is *required* to use the built in browserify transform module in order to bundle this code for the browser.
 
