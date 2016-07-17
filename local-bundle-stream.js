@@ -5,9 +5,9 @@ var through = require('through2')
 module.exports = function localBundleStream (moduleName, options) {
   options = options || {}
   options.debug = true
-  options.standalone = moduleName
   var filepath = resolve.sync(moduleName)
-  var b = browserify(filepath, options)
+  var b = browserify(options)
+  b.require(filepath, { expose: moduleName })
   var stream = through()
   stream.push('{')
 

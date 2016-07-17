@@ -6,7 +6,6 @@ var localBundleStream = require('./local-bundle-stream')
 
 module.exports = function wzrdBundlerTransform (filename) {
   if (/\.json$/.test(filename)) return through()
-  console.log('filename', filename)
   var basedir = path.dirname(filename)
 
   var vars = {
@@ -16,8 +15,6 @@ module.exports = function wzrdBundlerTransform (filename) {
 
   var sm = staticModule({
     'wzrd-bundler/local-module': function (moduleName, options) {
-      console.log('dependency', moduleName)
-      // return through()
       return localBundleStream(moduleName, options)
     }
   }, { vars: vars, varModules: { path: path } })

@@ -21,9 +21,7 @@ bundler(code, versions, function (err, bundle, packages) {
 })
 ```
 
-## WIP: Using local module overrides
-
-**WORK IN PROGRESS**
+## Using local module overrides
 
 Instead of specifying `latest` or a specific version of a module, you can instead use the `wzrd-bundler/local-module` module to force the bundler to use your local version of a module in the browser bundle. This is important for debugging, or overriding the behavior of modules for demo purposes.
 

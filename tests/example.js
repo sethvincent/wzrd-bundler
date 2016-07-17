@@ -1,21 +1,26 @@
 var local = require('wzrd-bundler/local-module')
 var createBundler = require('wzrd-bundler')
+var makeIframe = require('make-iframe')
 var bundler = createBundler()
 
 var entry = `
-  var bunny = require('bunny')
-  var resl = require('resl')
-  var regl = require('regl')
+  var choo = require('choo')
+  var html = require('choo/html')
+  var css = require('dom-css')
+  var app = choo()
 `
 
 var versions = {
-  regl: local('regl'),
-  resl: local('resl')
+  choo: local('choo')
 }
+
+var container = document.createElement('div')
+document.body.appendChild(container)
 
 bundler(entry, versions, function (err, bundle, packages) {
   if (err) console.log(err)
-  console.log(packages.regl.package)
-  console.log(packages.resl.package)
-  console.log(packages.bunny.package)
+  var iframe = makeIframe(bundle, {
+    container: container,
+    sandbox: ['allow-scripts']
+  })
 })
