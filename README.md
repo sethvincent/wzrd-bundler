@@ -1,5 +1,11 @@
 # wzrd-bundler
 
+Create JavaScript bundles in the browser using the Browserify CDN [wzrd.in](https://wzrd.in) with optional, debuggable local overrides of modules.
+
+```js
+npm install --save wzrd-bundler
+```
+
 ## Usage
 
 ```js

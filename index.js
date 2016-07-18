@@ -2,7 +2,7 @@ var assert = require('assert')
 var path = require('path')
 
 var multiBundle = require('wzrd-api-client/multi')
-var createCache = require('browser-module-cache')
+// var createCache = require('browser-module-cache')
 var detective = require('detective')
 var each = require('each-async')
 var semver = require('semver')
@@ -12,8 +12,8 @@ module.exports = function createBundler (options) {
   options = options || {}
   var host = options.host || 'https://wzrd.in'
   // TODO: cache modules with valid semver
-  options.cache = options.cache || {}
-  var cache = createCache(options.cache)
+  // options.cache = options.cache || {}
+  // var cache = createCache(options.cache)
 
   function bundler (entry, versions, callback) {
     versions = versions || {}
@@ -27,7 +27,7 @@ module.exports = function createBundler (options) {
     })
   }
 
-  bundler.cache = cache
+  // bundler.cache = cache
   return bundler
 
   function createPackages (modules, versions, callback) {
